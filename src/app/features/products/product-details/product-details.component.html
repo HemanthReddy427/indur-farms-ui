@@ -1,0 +1,173 @@
+<app-navbar></app-navbar> 
+
+<div class="page-container">
+
+    <div class="page-card">
+
+<div *ngIf="loading" class="loading">
+
+    Loading Product...
+
+</div>
+
+<div *ngIf="!loading">
+
+    <div class="breadcrumb">
+
+        <a routerLink="/">Home</a>
+
+        <span>></span>
+
+        <a routerLink="/products">Products</a>
+
+        <span>></span>
+
+        <span>{{product.name}}</span>
+
+    </div>
+
+    <div class="product-container">
+
+        <div class="image-section">
+
+            <img
+                [src]="product.imageUrl"
+                [alt]="product.name">
+
+        </div>
+
+        <div class="details-section">
+
+            <h1>
+
+                {{product.name}}
+
+            </h1>
+
+            <div class="rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span>(4.8)</span>
+
+            </div>
+
+            <h2>
+
+                ₹{{product.price}}
+
+            </h2>
+
+            <div
+                class="stock available"
+                *ngIf="product.stock>0">
+
+                ✔ In Stock
+
+                <small>{{product.stock}} Available</small>
+
+            </div>
+
+            <div
+                class="stock unavailable"
+                *ngIf="product.stock==0">
+
+                ✖ Out Of Stock
+
+            </div>
+
+            <div class="delivery">
+
+                🚚 Free Delivery
+
+                <br>
+
+                🌿 Fresh From Farm
+
+                <br>
+
+                🔒 Secure Checkout
+
+            </div>
+
+            <div class="quantity">
+
+                <button (click)="decreaseQuantity()">
+
+                    -
+
+                </button>
+
+                <span>
+
+                    {{quantity}}
+
+                </span>
+
+                <button (click)="increaseQuantity()">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="cart-btn"
+                    (click)="addToCart()">
+
+                    Add To Cart
+
+                </button>
+
+                <button
+                    class="buy-btn"
+                    (click)="buyNow()">
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="description">
+
+        <h2>Description</h2>
+
+        <p>
+
+            {{product.description}}
+
+        </p>
+
+    </div>
+
+    <div class="related">
+
+        <h2>
+
+            Related Products
+
+        </h2>
+
+        <div class="related-grid">
+
+            <app-product-card
+                *ngFor="let product of relatedProducts"
+                [product]="product">
+            </app-product-card>
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,73 @@
+.categories{
+
+    padding:80px 8%;
+
+    background:white;
+
+}
+
+.categories h2{
+
+    text-align:center;
+
+    color:#1B5E20;
+
+    font-size:38px;
+
+    margin-bottom:50px;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:#F8FBF6;
+
+    border-radius:15px;
+
+    padding:35px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:1px solid #E0E0E0;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+    border-color:#2E7D32;
+
+}
+
+.icon{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    color:#2E7D32;
+
+    font-size:22px;
+
+}

@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+
+<div class="page-container">
+
+    <div class="page-card success-card">
+
+        <div class="success-icon">
+
+            ✔
+
+        </div>
+
+        <h1>
+
+            Order Placed Successfully
+
+        </h1>
+
+        <p>
+
+            Thank you for shopping with Indur Farms.
+
+        </p>
+
+        <div
+            class="order-details"
+            *ngIf="order">
+
+            <div>
+
+                <strong>Order ID</strong>
+
+                <span>#{{order.orderId}}</span>
+
+            </div>
+
+            <div>
+
+                <strong>Total Amount</strong>
+
+                <span>₹{{order.totalAmount}}</span>
+
+            </div>
+
+            <div>
+
+                <strong>Order Status</strong>
+
+                <span>{{order.orderStatus}}</span>
+
+            </div>
+
+            <div>
+
+                <strong>Payment Status</strong>
+
+                <span>{{order.paymentStatus}}</span>
+
+            </div>
+
+            <div>
+
+                <strong>Order Date</strong>
+
+                <span>{{order.orderDate | date:'medium'}}</span>
+
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <button
+                routerLink="/">
+
+                Continue Shopping
+
+            </button>
+
+            <button
+                class="secondary"
+                routerLink="/orders">
+
+                My Orders
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

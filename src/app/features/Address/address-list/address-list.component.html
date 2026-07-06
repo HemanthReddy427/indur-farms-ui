@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+
+<div class="page-container">
+
+    <div class="page-card">
+
+        <div class="header">
+
+            <h1>
+
+                My Addresses
+
+            </h1>
+
+            <button
+                class="add-btn"
+                (click)="addAddress()">
+
+                + Add Address
+
+            </button>
+
+        </div>
+
+        <div
+            *ngIf="loading"
+            class="loading">
+
+            Loading...
+
+        </div>
+
+        <div
+            *ngIf="!loading && addresses.length==0"
+            class="empty">
+
+            <h2>No Addresses Found</h2>
+
+            <p>Add your first address.</p>
+
+        </div>
+
+        <div
+            class="address-card"
+            *ngFor="let address of addresses">
+
+            <h3>
+
+                Address
+
+            </h3>
+
+            <p>
+
+                {{address.basicAddress}}
+
+            </p>
+
+            <p>
+
+                {{address.landmark}}
+
+            </p>
+
+            <p>
+
+                {{address.city}},
+                {{address.district}}
+
+            </p>
+
+            <p>
+
+                {{address.state}} -
+                {{address.zipCode}}
+
+            </p>
+
+            <div class="actions">
+
+                <button
+                    class="edit-btn"
+                    (click)="editAddress(address.id)">
+
+                    Edit
+
+                </button>
+
+                <button
+                    class="delete-btn"
+                    (click)="deleteAddress(address.id)">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

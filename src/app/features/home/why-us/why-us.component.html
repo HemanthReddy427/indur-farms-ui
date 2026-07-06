@@ -1,0 +1,47 @@
+<section class="why-us">
+
+    <div class="heading">
+
+        <h2>
+
+            Why Choose Indur Farms?
+
+        </h2>
+
+        <p>
+
+            We bring freshness, quality and trust directly from farms to your home.
+
+        </p>
+
+    </div>
+
+    <div class="features">
+
+        <div
+            class="feature-card"
+            *ngFor="let feature of features">
+
+            <div class="icon">
+
+                {{feature.icon}}
+
+            </div>
+
+            <h3>
+
+                {{feature.title}}
+
+            </h3>
+
+            <p>
+
+                {{feature.description}}
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>

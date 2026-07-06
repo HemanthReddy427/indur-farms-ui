@@ -1,0 +1,206 @@
+.loading,
+.empty{
+
+    text-align:center;
+
+    padding:60px;
+
+}
+
+.order-card{
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    transition:.3s;
+
+}
+
+.order-card:hover{
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.amount{
+
+    font-size:24px;
+
+    color:#2E7D32;
+
+    font-weight:bold;
+
+}
+
+.status-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:25px 0;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.view-btn{
+
+    background:#2E7D32;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.cancel-btn{
+
+    background:#D32F2F;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.status-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:25px 0;
+
+}
+
+.status-row div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.status-row label{
+
+    font-size:14px;
+
+    color:#666;
+
+    font-weight:600;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-align:center;
+
+    min-width:120px;
+
+}
+
+/* Order Status */
+
+.pending{
+
+    background:#F9A825;
+
+}
+
+.confirmed{
+
+    background:#1976D2;
+
+}
+
+.packed{
+
+    background:#7B1FA2;
+
+}
+
+.shipped{
+
+    background:#EF6C00;
+
+}
+
+.delivered{
+
+    background:#2E7D32;
+
+}
+
+.cancelled{
+
+    background:#C62828;
+
+}
+
+/* Payment Status */
+
+.payment-pending{
+
+    background:#757575;
+
+}
+
+.paid{
+
+    background:#2E7D32;
+
+}
+
+.failed{
+
+    background:#C62828;
+
+}

@@ -1,0 +1,57 @@
+<section class="testimonials">
+
+    <div class="heading">
+
+        <h2>
+
+            What Our Customers Say
+
+        </h2>
+
+        <p>
+
+            Thousands of happy customers trust Indur Farms.
+
+        </p>
+
+    </div>
+
+    <div class="testimonial-grid">
+
+        <div
+            class="testimonial-card"
+            *ngFor="let customer of testimonials">
+
+            <img
+                [src]="customer.image"
+                [alt]="customer.name">
+
+            <div class="stars">
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+            <p class="review">
+
+                "{{customer.review}}"
+
+            </p>
+
+            <h3>
+
+                {{customer.name}}
+
+            </h3>
+
+            <span>
+
+                {{customer.location}}
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>

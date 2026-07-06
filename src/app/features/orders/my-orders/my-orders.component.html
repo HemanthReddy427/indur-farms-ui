@@ -1,0 +1,136 @@
+<app-navbar></app-navbar>
+
+<div class="page-container">
+
+    <div class="page-card">
+
+        <h1>
+
+            My Orders
+
+        </h1>
+
+        <div
+            *ngIf="loading"
+            class="loading">
+
+            Loading Orders...
+
+        </div>
+
+        <div
+            *ngIf="!loading && orders.length==0"
+            class="empty">
+
+            <h2>
+
+                No Orders Found
+
+            </h2>
+
+            <p>
+
+                Start shopping to place your first order.
+
+            </p>
+
+        </div>
+
+        <div
+            class="order-card"
+            *ngFor="let order of orders">
+
+            <div class="top">
+
+                <div>
+
+                    <h3>
+
+                        Order #{{order.orderId}}
+
+                    </h3>
+
+                    <p>
+
+                        {{order.orderDate | date:'mediumDate'}}
+
+                    </p>
+
+                </div>
+
+                <div class="amount">
+
+                    ₹{{order.totalAmount}}
+
+                </div>
+
+            </div>
+
+            <div class="status-row">
+
+    <div>
+
+        <label>
+
+            Order Status
+
+        </label>
+
+        <span
+            class="badge"
+            [ngClass]="getOrderStatusClass(order.orderStatus)">
+
+            {{order.orderStatus}}
+
+        </span>
+
+    </div>
+
+    <div>
+
+        <label>
+
+            Payment
+
+        </label>
+
+        <span
+            class="badge"
+            [ngClass]="getPaymentStatusClass(order.paymentStatus)">
+
+            {{order.paymentStatus}}
+
+        </span>
+
+    </div>
+
+</div>
+
+            <div class="buttons">
+
+                <button
+                    class="view-btn"
+                    (click)="viewOrder(order.orderId)">
+
+                    View Details
+
+                </button>
+
+                <button
+                    *ngIf="canCancel(order)"
+                    class="cancel-btn"
+                    (click)="cancelOrder(order.orderId)">
+
+                    Cancel Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

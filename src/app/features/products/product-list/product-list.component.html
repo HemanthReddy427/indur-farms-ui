@@ -1,0 +1,50 @@
+<app-navbar></app-navbar> 
+
+<div class="page-container">
+
+    <div class="page-card">
+<div class="container">
+
+    <div class="header">
+
+        <h1>Our Products</h1>
+
+        <input
+            type="text"
+            placeholder="Search products..."
+            [(ngModel)]="searchText"
+            (input)="search()">
+
+    </div>
+
+    <div
+        class="loading"
+        *ngIf="loading">
+
+        Loading Products...
+
+    </div>
+
+    <div
+        class="empty"
+        *ngIf="!loading && filteredProducts.length == 0">
+
+        No Products Found
+
+    </div>
+
+    <div
+        class="products-grid"
+        *ngIf="!loading">
+
+        <app-product-card
+            *ngFor="let product of filteredProducts"
+            [product]="product">
+        </app-product-card>
+
+    </div>
+
+</div>
+</div>
+</div>
+<app-footer></app-footer>

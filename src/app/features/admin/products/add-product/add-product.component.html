@@ -1,0 +1,122 @@
+<div class="container">
+
+    <div class="card">
+
+        <h2>Add Product</h2>
+
+        <form
+            [formGroup]="productForm"
+            (ngSubmit)="saveProduct()">
+
+            <div class="form-group">
+
+                <label>Product Name</label>
+
+                <input
+                    type="text"
+                    formControlName="name"
+                    placeholder="Enter Product Name">
+
+                <small
+                    *ngIf="productForm.get('name')?.touched &&
+                           productForm.get('name')?.invalid">
+
+                    Product name is required.
+
+                </small>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Description</label>
+
+                <textarea
+                    rows="4"
+                    formControlName="description"
+                    placeholder="Enter Product Description">
+
+                </textarea>
+
+                <small
+                    *ngIf="productForm.get('description')?.touched &&
+                           productForm.get('description')?.invalid">
+
+                    Description is required.
+
+                </small>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label>Price (₹)</label>
+
+                    <input
+                        type="number"
+                        formControlName="price"
+                        placeholder="Enter Price">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Stock</label>
+
+                    <input
+                        type="number"
+                        formControlName="stock"
+                        placeholder="Enter Stock">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Product Image</label>
+
+                <input
+                    type="file"
+                    accept="image/*"
+                    (change)="onImageSelected($event)">
+
+            </div>
+
+            <div
+                class="preview"
+                *ngIf="imagePreview">
+
+                <img
+                    [src]="imagePreview">
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    [disabled]="isSubmitting">
+
+                    Save Product
+
+                </button>
+
+                <button
+                    type="button"
+                    class="cancel"
+                    (click)="cancel()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

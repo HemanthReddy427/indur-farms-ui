@@ -1,0 +1,150 @@
+<app-navbar></app-navbar>
+
+<div class="page-container">
+
+    <div class="page-card address-form">
+
+        <h1>
+
+            Add New Address
+
+        </h1>
+
+        <form
+            #form="ngForm"
+            (ngSubmit)="saveAddress()">
+
+            <div class="form-group">
+
+                <label>
+
+                    Address
+
+                </label>
+
+                <textarea
+                    rows="3"
+                    name="basicAddress"
+                    [(ngModel)]="address.basicAddress"
+                    required>
+
+                </textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Landmark
+
+                </label>
+
+                <input
+                    type="text"
+                    name="landmark"
+                    [(ngModel)]="address.landmark">
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label>
+
+                        City
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="city"
+                        [(ngModel)]="address.city"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        District
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="district"
+                        [(ngModel)]="address.district"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label>
+
+                        State
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="state"
+                        [(ngModel)]="address.state"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Zip Code
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="zipCode"
+                        [(ngModel)]="address.zipCode"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    (click)="cancel()">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    [disabled]="form.invalid || saving">
+
+                    Save Address
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

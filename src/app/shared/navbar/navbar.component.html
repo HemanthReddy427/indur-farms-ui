@@ -1,0 +1,112 @@
+<nav class="navbar">
+
+    <div class="logo">
+
+        <a routerLink="/">
+
+            🌾 <span>Indur Farms</span>
+
+        </a>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a routerLink="/">Home</a></li>
+
+        <li><a routerLink="/products">Products</a></li>
+
+        <li><a routerLink="/categories">Categories</a></li>
+
+        <li><a routerLink="/about">About</a></li>
+
+        <li><a routerLink="/contact">Contact</a></li>
+
+    </ul>
+
+    <div class="search">
+
+        <input
+            type="text"
+            placeholder="Search products...">
+
+    </div>
+
+    <div class="actions">
+
+        <ng-container *ngIf="!isLoggedIn">
+
+            <a
+                routerLink="/login"
+                class="login-btn">
+
+                Login
+
+            </a>
+
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn">
+
+            <div class="profile-menu">
+
+                <div class="profile">
+
+                    👤 {{userName}}
+
+                </div>
+                <div class="dropdown">
+                     <a
+                        *ngIf="isAdmin"
+                        routerLink="/admin">
+                        Admin Dashboard
+                    </a>
+                    <a routerLink="/profile">
+
+                        My Profile
+
+                    </a>
+
+                    <a routerLink="/orders">
+
+                        My Orders
+
+                    </a>
+
+                    <a routerLink="/addresses">
+
+                        My Addresses
+
+                    </a>
+
+                    <a
+                        href="javascript:void(0)"
+                        (click)="logout()">
+
+                        Logout
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </ng-container>
+
+        <a
+            routerLink="/cart"
+            class="cart">
+
+            🛒
+
+            <span class="badge">
+
+                {{cartCount}}
+
+            </span>
+
+        </a>
+
+    </div>
+
+</nav>

@@ -1,0 +1,104 @@
+<div class="product-container">
+
+    <div class="header">
+
+        <h2>Products</h2>
+
+        <button (click)="addProduct()">
+
+            + Add Product
+
+        </button>
+
+    </div>
+
+    <div class="search">
+
+        <input
+            type="text"
+            placeholder="Search products..."
+            (input)="search($event)">
+
+    </div>
+
+    <div
+        class="loading"
+        *ngIf="loading">
+
+        Loading products...
+
+    </div>
+
+    <table *ngIf="!loading && filteredProducts.length > 0">
+
+        <thead>
+
+            <tr>
+
+                <th>Image</th>
+
+                <th>Name</th>
+
+                <th>Price</th>
+
+                <th>Stock</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let product of filteredProducts">
+
+                <td>
+
+                    <img
+                        [src]="product.imageUrl"
+                        [alt]="product.name">
+
+                </td>
+
+                <td>{{product.name}}</td>
+
+                <td>₹{{product.price}}</td>
+
+                <td>{{product.stock}}</td>
+
+                <td>
+
+                    <button
+                        class="edit"
+                        (click)="editProduct(product.id)">
+
+                        Edit
+
+                    </button>
+
+                    <button
+                        class="delete"
+                        (click)="deleteProduct(product.id)">
+
+                        Delete
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div
+        class="empty"
+        *ngIf="!loading && filteredProducts.length === 0">
+
+        No Products Found
+
+    </div>
+
+</div>

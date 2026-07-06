@@ -1,0 +1,218 @@
+<app-navbar></app-navbar>
+
+<div class="page-container">
+
+    <h1>Checkout</h1>
+
+    <div class="checkout-grid">
+
+        <div>
+
+            <div class="page-card">
+
+                <div class="section-header">
+
+                    <h2>Shipping Address</h2>
+
+                    <button
+                        class="manage-btn"
+                        (click)="manageAddresses()">
+
+                        Manage Addresses
+
+                    </button>
+
+                </div>
+
+                <div
+                    *ngIf="addresses.length==0"
+                    class="no-address">
+
+                    <p>No addresses found.</p>
+
+                    <button
+                        class="manage-btn"
+                        routerLink="/addresses/add">
+
+                        Add Address
+
+                    </button>
+
+                </div>
+
+                <div
+                    *ngFor="let address of addresses"
+                    class="address-card">
+
+                    <input
+                        type="radio"
+                        name="address"
+                        [value]="address.id"
+                        [(ngModel)]="selectedAddressId">
+
+                    <div>
+
+                        <p>{{address.basicAddress}}</p>
+
+                        <p>{{address.landmark}}</p>
+
+                        <p>{{address.city}}, {{address.district}}</p>
+
+                        <p>{{address.state}} - {{address.zipCode}}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="page-card">
+
+                <h2>Order Items</h2>
+
+                <div
+                    *ngFor="let item of cartItems"
+                    class="cart-item">
+
+                    <img
+                        [src]="item.imageUrl">
+
+                    <div class="details">
+
+                        <h3>{{item.productName}}</h3>
+
+                        <p>Quantity : {{item.quantity}}</p>
+
+                        <small>₹{{item.price}} each</small>
+
+                    </div>
+
+                    <h3>
+
+                        ₹{{item.totalPrice}}
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div>
+            <div class="page-card">
+
+    <h2>
+
+        Payment Method
+
+    </h2>
+
+    <div class="payment-option">
+
+        <input
+            type="radio"
+            name="payment"
+            [value]="PaymentMethod.CashOnDelivery"
+            [(ngModel)]="selectedPaymentMethod">
+
+        <div>
+
+            <h3>
+
+                Cash On Delivery
+
+            </h3>
+
+            <small>
+
+                Pay when your order is delivered.
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="payment-option">
+
+        <input
+            type="radio"
+            name="payment"
+            [value]="PaymentMethod.Razorpay"
+            [(ngModel)]="selectedPaymentMethod">
+
+        <div>
+
+            <h3>
+
+                UPI / Card / Net Banking
+
+            </h3>
+
+            <small>
+
+                Secure payment using Razorpay.
+
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+            <div class="page-card summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+
+                    <span>Items ({{totalItems}})</span>
+
+                    <span>₹{{subtotal}}</span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>Delivery</span>
+
+                    <span>{{delivery==0 ? 'FREE' : ('₹'+delivery)}}</span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>Tax</span>
+
+                    <span>₹0</span>
+
+                </div>
+
+                <hr>
+
+                <div class="summary-row total">
+
+                    <span>Grand Total</span>
+
+                    <span>₹{{grandTotal}}</span>
+
+                </div>
+
+                <button
+                    class="place-order-btn"
+                    (click)="placeOrder()">
+
+                    Place Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>
