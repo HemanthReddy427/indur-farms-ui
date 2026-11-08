@@ -1,111 +1,63 @@
-.why-us{
-
-    padding:90px 8%;
-
-    background:white;
-
+.why-us {
+  padding: var(--section-y) var(--pad-x);
+  background: var(--canvas);
 }
 
-.heading{
+.heading {
+  max-width: 60ch;
+  margin-bottom: 28px;
 
-    text-align:center;
+  h2 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--ink-900);
+  }
 
-    margin-bottom:60px;
-
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-500);
+  }
 }
 
-.heading h2{
-
-    font-size:42px;
-
-    color:#1B5E20;
-
-    margin-bottom:15px;
-
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
-.heading p{
+.feature-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
 
-    font-size:18px;
+  h3 {
+    margin: 16px 0 8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink-900);
+  }
 
-    color:#666;
-
+  p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-500);
+  }
 }
 
-.features{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-    gap:30px;
-
-}
-
-.feature-card{
-
-    background:#F7FBF6;
-
-    border-radius:18px;
-
-    padding:40px 30px;
-
-    text-align:center;
-
-    transition:.3s;
-
-    border:1px solid #E8E8E8;
-
-}
-
-.feature-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-    border-color:#2E7D32;
-
-}
-
-.icon{
-
-    width:80px;
-
-    height:80px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#E8F5E9;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:38px;
-
-    margin-bottom:25px;
-
-}
-
-.feature-card h3{
-
-    color:#1B5E20;
-
-    margin-bottom:15px;
-
-    font-size:24px;
-
-}
-
-.feature-card p{
-
-    color:#666;
-
-    line-height:1.7;
-
+.icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: 10px;
 }

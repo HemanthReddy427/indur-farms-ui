@@ -1,0 +1,23 @@
+:host { display: block; }
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  color: var(--ink-500);
+}
+
+.ring {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--brand-100);
+  border-top-color: var(--sun);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+.label { font-size: 14px; }
+
+@keyframes spin { to { transform: rotate(360deg); } }

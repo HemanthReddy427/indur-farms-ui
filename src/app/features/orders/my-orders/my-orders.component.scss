@@ -1,206 +1,143 @@
-.loading,
-.empty{
+:host { display: flex; flex-direction: column; min-height: 100vh; }
 
-    text-align:center;
-
-    padding:60px;
-
+.page-container {
+  flex: 1;
+  padding: 32px var(--gutter) 64px;
+  background: var(--canvas);
 }
 
-.order-card{
+.page-card {
+  max-width: 960px;
+  margin: 0 auto;
 
-    border:1px solid #ddd;
-
-    border-radius:12px;
-
-    padding:25px;
-
-    margin-bottom:25px;
-
-    transition:.3s;
-
+  > h1 {
+    margin: 0 0 20px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    color: var(--ink-900);
+    border-bottom: 1px solid var(--line);
+  }
 }
 
-.order-card:hover{
+.loading { padding: 48px 0; text-align: center; color: var(--ink-500); }
 
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+.empty {
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-lg);
 
+  h2 { margin: 0 0 6px; font-size: 18px; font-weight: 600; color: var(--ink-900); }
+  p { margin: 0; color: var(--ink-500); }
 }
 
-.top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
+.order-card {
+  margin-bottom: 16px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
 }
 
-.amount{
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
 
-    font-size:24px;
-
-    color:#2E7D32;
-
-    font-weight:bold;
-
+  h3 { margin: 0 0 2px; font-size: 16px; font-weight: 600; color: var(--ink-900); }
+  p { margin: 0; font-size: 13.5px; color: var(--ink-500); }
 }
 
-.status-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin:25px 0;
-
+.amount {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink-900);
 }
 
-.buttons{
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  margin: 20px 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 
-    display:flex;
+  > div { display: flex; flex-direction: column; gap: 6px; }
 
-    gap:15px;
-
+  label { font-size: 12.5px; font-weight: 500; color: var(--ink-500); }
 }
 
-.view-btn{
+/* Status badges: soft fill + dot, so state reads at a glance */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-700);
+  background: var(--canvas);
+  border: 1px solid var(--line);
+  border-radius: 999px;
 
-    background:#2E7D32;
-
-    color:white;
-
-    border:none;
-
-    padding:12px 20px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
+  &::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: currentColor;
+    border-radius: 50%;
+  }
 }
 
-.cancel-btn{
+/* Order status */
+.pending   { color: var(--warning-700); background: var(--warning-50); border-color: var(--warning-100); }
+.confirmed { color: var(--info-700);    background: var(--info-50);    border-color: var(--info-100); }
+.packed    { color: var(--violet-700);  background: var(--violet-50);  border-color: var(--violet-100); }
+.shipped   { color: var(--teal-700);    background: var(--teal-50);    border-color: var(--teal-100); }
+.delivered { color: var(--success-700); background: var(--success-50); border-color: var(--success-100); }
+.cancelled { color: var(--danger-700);  background: var(--danger-50);  border-color: var(--danger-100); }
 
-    background:#D32F2F;
+/* Payment status */
+.payment-pending { color: var(--ink-500); background: var(--canvas); border-color: var(--line-strong); }
+.paid   { color: var(--success-700); background: var(--success-50); border-color: var(--success-100); }
+.failed { color: var(--danger-700);  background: var(--danger-50);  border-color: var(--danger-100); }
 
-    color:white;
-
-    border:none;
-
-    padding:12px 20px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.status-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin:25px 0;
-
+.view-btn,
+.cancel-btn {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
 }
 
-.status-row div{
+.view-btn {
+  color: var(--action-fg);
+  background: var(--action);
+  border: 1px solid var(--action);
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
+  &:hover { background: var(--action-hover); border-color: var(--action-hover); }
 }
 
-.status-row label{
+.cancel-btn {
+  color: var(--danger-700);
+  background: var(--surface);
+  border: 1px solid var(--danger-100);
 
-    font-size:14px;
-
-    color:#666;
-
-    font-weight:600;
-
-}
-
-.badge{
-
-    display:inline-block;
-
-    padding:8px 16px;
-
-    border-radius:20px;
-
-    color:white;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    text-align:center;
-
-    min-width:120px;
-
-}
-
-/* Order Status */
-
-.pending{
-
-    background:#F9A825;
-
-}
-
-.confirmed{
-
-    background:#1976D2;
-
-}
-
-.packed{
-
-    background:#7B1FA2;
-
-}
-
-.shipped{
-
-    background:#EF6C00;
-
-}
-
-.delivered{
-
-    background:#2E7D32;
-
-}
-
-.cancelled{
-
-    background:#C62828;
-
-}
-
-/* Payment Status */
-
-.payment-pending{
-
-    background:#757575;
-
-}
-
-.paid{
-
-    background:#2E7D32;
-
-}
-
-.failed{
-
-    background:#C62828;
-
+  &:hover { background: var(--danger-50); border-color: var(--danger-700); }
 }

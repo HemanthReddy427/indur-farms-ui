@@ -1,80 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   Indur Farms – design system (global) · "Sunrise" look
+   Paste this at the TOP of src/styles.scss (replace the earlier version).
+   Every component stylesheet reads these variables, so changing a value here
+   re-themes the whole app.
+   ========================================================================== */
 
-html,
-body{
+:root {
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
 
-    margin:0;
+  /* Brand: deep field green + sun */
+  --brand-900: #0b2e1f;   /* hero, sidebar, dark panels */
+  --brand-800: #0f3a27;
+  --brand-700: #17603f;   /* links, outlined buttons */
+  --brand-100: #dce9bd;
+  --brand-50:  #f0f5e3;
+  --lime:      #b8d36a;   /* accent on dark */
+  --cream:     #fff6e3;   /* text on dark */
+  --sun:       #f5a524;
+  --sun-300:   #ffc94d;
+  --sun-600:   #e8641b;
 
-    padding:0;
+  /* Primary action = sun amber with dark text (same on every page) */
+  --action:       #f5a524;
+  --action-hover: #ffc94d;
+  --action-fg:    #0b2e1f;
 
-    font-family:"Segoe UI",sans-serif;
+  /* Neutrals (warm) */
+  --ink-900: #0b2e1f;
+  --ink-700: #2f4a3b;
+  --ink-500: #566a5d;
+  --line:        #e4dcc6;
+  --line-strong: #cfc5aa;
+  --surface: #ffffff;
+  --canvas:  #f7f1e3;
 
-    background:var(--background);
+  /* Status */
+  --danger-700: #b42318;
+  --danger-100: #fecdca;
+  --danger-50:  #fef3f2;
+  --success-700: #18794e;
+  --success-100: #c5e6d4;
+  --success-50:  #e9f6ef;
+  --warning-700: #9a5b00;
+  --warning-100: #f6dca6;
+  --warning-50:  #fff6e5;
+  --info-700:    #1d4f91;
+  --info-100:    #c3d8f3;
+  --info-50:     #eaf2fc;
+  --violet-700:  #5b3fa0;
+  --violet-100:  #d9cdf2;
+  --violet-50:   #f1edfa;
+  --teal-700:    #0f6b6b;
+  --teal-100:    #bfe2e2;
+  --teal-50:     #e5f4f4;
 
-    color:var(--text);
+  /* Shape + depth */
+  --r-md: 10px;           /* inputs, small panels */
+  --r-lg: 16px;           /* cards */
+  --r-pill: 999px;        /* buttons */
+  --sh-1: 0 1px 2px rgba(11, 46, 31, .06);
+  --sh-2: 0 8px 20px rgba(11, 46, 31, .10);
+  --focus-ring: 0 0 0 3px rgba(245, 165, 36, .35);
 
+  /* Layout */
+  --max-w: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --pad-x: max(var(--gutter), calc((100% - var(--max-w)) / 2));
+  --section-y: clamp(40px, 6vw, 72px);
 }
 
-:root{
+*, *::before, *::after { box-sizing: border-box; }
 
-    --primary:#2E7D32;
+html { -webkit-text-size-adjust: 100%; }
 
-    --primary-dark:#1B5E20;
-
-    --secondary:#FF9800;
-
-    --danger:#D32F2F;
-
-    --background:#f4f6f9;
-
-    --card:#ffffff;
-
-    --text:#333333;
-
-    --border:#e5e5e5;
-
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-700);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
 }
 
-.page-container{
+button, input, textarea, select { font-family: inherit; }
+img { max-width: 100%; }
 
-    max-width:1400px;
-
-    margin:30px auto;
-
-    padding:25px;
-
+:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 2px;
 }
 
-.page-card{
-
-    background:var(--card);
-
-    border-radius:12px;
-
-    padding:25px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-}
-
-.primary-btn{
-
-    background:var(--primary);
-
-    color:white;
-
-    border:none;
-
-    padding:12px 24px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-}
-
-.primary-btn:hover{
-
-    background:var(--primary-dark);
-
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -1,42 +1,86 @@
-.sidebar{
+:host { display: block; height: 100%; }
 
-    width:250px;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 12px;
+  overflow-y: auto;
+  background: var(--brand-900);
 
-    background:#1B5E20;
+  h2 {
+    margin: 0 0 20px;
+    padding: 4px 12px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
 
-    color:white;
+  a {
+    display: block;
+    margin-bottom: 2px;
+    padding: 10px 12px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #b9cfc2;
+    text-decoration: none;
+    border-radius: var(--r-md);
+    transition: background-color .15s ease, color .15s ease;
 
-    display:flex;
+    &:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .07);
+    }
 
-    flex-direction:column;
+    &.active {
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      box-shadow: inset 3px 0 0 #fff;
+    }
 
-    padding:20px;
+    &:focus-visible { outline-color: #fff; }
 
+    /* "Back to website" sits apart from the admin sections */
+    &:last-child {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 0 0 var(--r-md) var(--r-md);
+    }
+  }
 }
 
-.sidebar h2{
+@media (max-width: 900px) {
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 12px;
+    overflow-x: auto;
 
-    margin-bottom:40px;
+    h2 {
+      flex: none;
+      margin: 0 12px 0 0;
+      padding: 0 12px 0 4px;
+      border-bottom: 0;
+      border-right: 1px solid rgba(255, 255, 255, .12);
+    }
 
-}
+    a {
+      flex: none;
+      margin: 0;
+      white-space: nowrap;
 
-.sidebar a{
+      &.active { box-shadow: inset 0 -3px 0 #fff; }
 
-    color:white;
-
-    text-decoration:none;
-
-    padding:14px;
-
-    border-radius:8px;
-
-    margin-bottom:10px;
-
-}
-
-.sidebar a:hover,
-.sidebar .active{
-
-    background:#2E7D32;
-
+      &:last-child {
+        margin: 0 0 0 auto;
+        padding-top: 10px;
+        border-top: 0;
+        border-radius: var(--r-md);
+      }
+    }
+  }
 }
