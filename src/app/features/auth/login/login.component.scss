@@ -143,6 +143,45 @@ button[type="submit"] {
   &:hover { background: var(--action-hover); border-color: var(--action-hover); }
 }
 
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  font-size: 13px;
+  color: var(--ink-500);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+}
+
+.microsoft-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 46px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-900);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+
+  &:hover {
+    background: var(--canvas);
+    border-color: var(--ink-500);
+  }
+}
+
 .register {
   margin: 24px 0 0;
   font-size: 14px;
